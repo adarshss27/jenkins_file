@@ -13,7 +13,7 @@ pipeline{
         }
         stage('copy'){
             steps{
-                sh 'scp -r /var/lib/jenkins/workspace/pipeline_jen_ansible_1/* adarsh@192.168.235.145:/home/adarsh/new_project1'
+                sh 'scp -r /var/lib/jenkins/workspace/pipeline_jen_ansible_1 adarsh@192.168.235.145:/home/adarsh/new_project1'
             }
         }
         stage('deploy-1'){
