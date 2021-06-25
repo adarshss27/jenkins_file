@@ -8,22 +8,22 @@ pipeline{
         }
         stage('permission'){
             steps{
-                sh 'chmod  -R 777 /var/lib/jenkins/workspace/test_pipe'
+                sh 'chmod  -R 777 /var/lib/jenkins/workspace/pipeline_jen_ansible_1'
             }
         }
         stage('copy'){
             steps{
-                sh 'scp -r /var/lib/jenkins/workspace/test_pipe/* adarsh@192.168.235.145:/home/adarsh/new_project'
+                sh 'scp -r /var/lib/jenkins/workspace/pipeline_jen_ansible_1/* adarsh@192.168.235.145:/home/adarsh/new_project1'
             }
         }
         stage('deploy-1'){
             steps{
-                sh 'ssh adarsh@192.168.235.145 "ansible-playbook /home/adarsh/new_project/ans_ble/gather_fact.yml"'                                                            
+                sh 'ssh adarsh@192.168.235.145 "ansible-playbook /home/adarsh/new_project1/ans_ble/gather_fact.yml"'                                                            
             }
         }
         stage('deploy-2'){
             steps{
-                sh 'ssh adarsh@192.168.235.145 "ansible-playbook /home/adarsh/new_project/ans_ble/gather_fact1.yml"'                                                            
+                sh 'ssh adarsh@192.168.235.145 "ansible-playbook /home/adarsh/new_project1/ans_ble/gather_fact1.yml"'                                                            
             }
         }          
     }
